@@ -1,0 +1,104 @@
+body {
+    background: linear-gradient(135deg, #d2dfee, #dddfe8, #a3c0ee);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+.register-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    padding: 30px;
+}
+.form-control:focus {
+    border-color: #4364f7;
+    box-shadow: 0 0 0 0.2rem rgba(67, 100, 247, 0.25);
+}
+.btn-primary {
+    background-color: #4364f7;
+    border: none;
+    transition: 0.3s;
+}
+.btn-primary:hover {
+    background-color: #3651d3;
+}
+.form-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 450px;
+    width: 100%;
+    padding: 35px 30px;
+}
+
+.small-text {
+    font-size: 0.9rem;
+}
+
+.navbar {
+    background: linear-gradient(135deg, #6fb1fc, #4364f7, #0052d4);
+}
+.navbar-brand, .nav-link {
+    color: #fff !important;
+    font-weight: 600;
+}
+.profile-card {
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+.profile-header {
+    background: linear-gradient(135deg, #4364f7, #0052d4);
+    padding: 40px 20px;
+    text-align: center;
+    color: #fff;
+}
+.profile-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    object-fit: cover;
+    margin-top: -60px;
+    background: #fff;
+}
+.info-section {
+    padding: 25px 35px;
+}
+.info-section h5 {
+    font-weight: 600;
+    color: #0052d4;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+}
+.info-item {
+    margin-bottom: 12px;
+}
+.info-item label {
+    font-weight: 500;
+    color: #333;
+}
+.logout-btn {
+    background-color: #e74c3c;
+    border: none;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+.logout-btn:hover {
+    background-color: #c0392b;
+}
