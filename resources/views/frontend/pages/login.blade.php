@@ -35,7 +35,7 @@
       </div>
 
       <div class="text-center mt-3 small-text">
-        Don't have an account? <a href="{{ route('student.register.form') }}" class="text-primary fw-semibold text-decoration-none">Register Now</a>
+        Don't have an account? <a href="{{ route('frontend.pages.register') }}" class="text-primary fw-semibold text-decoration-none">Register Now</a>
       </div>
     </form>
   </div>

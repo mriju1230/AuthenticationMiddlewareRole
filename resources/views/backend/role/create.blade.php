@@ -24,34 +24,24 @@
                         <div class="card">
                             <div class="card-header d-flex">
                                 <div>
-                                    <h3 class="page-title">Add New Category</h3>
+                                    <h3 class="page-title">Add New Role</h3>
                                 </div>
                                 <div class="ml-auto">
-                                    <a href="{{ route('category.index') }}" class="btn btn-primary">All Category </a>
+                                    <a href="{{ route('role.index') }}" class="btn btn-primary">All Role </a>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('category.store') }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('role.store') }}" method="POST">
                                     @csrf
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Category Name</label>
+                                        <label class="col-lg-3 col-form-label">Role Name</label>
                                         <div class="col-lg-9">
                                             <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror">
                                             @error('name')
                                                 <small class="text-danger">{{ $message }}</small>
                                             @enderror
                                         </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Category Photo</label>
-                                        <div class="col-lg-9">
-                                            <input type="file" name="photo" class="form-control @error('photo') is-invalid @enderror">
-                                            @error('photo')
-                                                <small class="text-danger">{{ $message }}</small>
-                                            @enderror
-                                        </div>
-                                    </div>
+                                    </div>                                   
                                                                
                                     <div class="text-right">
                                         <button type="submit" class="btn btn-primary">Submit</button>

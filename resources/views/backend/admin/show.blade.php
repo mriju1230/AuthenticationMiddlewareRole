@@ -11,9 +11,10 @@
         <div class="page-header">
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="page-title">Welcome Admin!</h3>
+                    <h3 class="page-title">Admin Details</h3>
                     <ul class="breadcrumb">
-                        <li class="breadcrumb-item active">Dashboard</li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.index') }}">Admins</a></li>
+                        <li class="breadcrumb-item active">Details</li>
                     </ul>
                 </div>
             </div>
@@ -24,10 +25,10 @@
             <div class="col-md-12">
                 <div class="card shadow-sm">
                     <div class="card-header d-flex align-items-center">
-                        <h4 class="card-title mb-0">Brand Details</h4>
+                        <h4 class="card-title mb-0">Admin Information</h4>
                         <div class="ml-auto">
-                            <a href="{{ route('brand.index') }}" class="btn btn-primary btn-sm">
-                                <i class="fa fa-list"></i> All Brands
+                            <a href="{{ route('admin.index') }}" class="btn btn-primary btn-sm">
+                                <i class="fa fa-list"></i> All Admins
                             </a>
                         </div>
                     </div>
@@ -35,39 +36,58 @@
                     <div class="card-body">
                         <table class="table table-bordered">
                             <tr>
-                                <th width="30%">Brand Name</th>
-                                <td>{{ $brand->name }}</td>
+                                <th width="30%">Full Name</th>
+                                <td>{{ $admin->first_name }} {{ $admin->last_name }}</td>
                             </tr>
                             <tr>
-                                <th>Slug</th>
-                                <td>{{ $brand->slug }}</td>
+                                <th>Email</th>
+                                <td>{{ $admin->email }}</td>
                             </tr>
                             <tr>
-                                <th>Brand Logo</th>
+                                <th>Phone</th>
+                                <td>{{ $admin->phone ?? '—' }}</td>
+                            </tr>
+                            <tr>
+                                <th>Role</th>
+                                <td>{{ ucfirst($admin->admin_role) }}</td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
                                 <td>
-                                    @if($brand->logo)
-                                        <img src="{{ asset('media/brands/' . $brand->logo) }}" 
-                                            alt="{{ $brand->name }}" 
-                                            width="120" 
-                                            class="rounded border p-1 shadow-sm">
+                                    @if($admin->status)
+                                        <span class="badge bg-success">Active</span>
                                     @else
-                                        <span class="text-muted">No logo uploaded</span>
+                                        <span class="badge bg-danger">Inactive</span>
+                                    @endif
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Photo</th>
+                                <td>
+                                    @if($admin->photo)
+                                        <img src="{{ asset('media/admins/' . $admin->photo) }}" 
+                                             alt="{{ $admin->first_name }}" 
+                                             width="120" 
+                                             class="rounded border p-1 shadow-sm">
+                                    @else
+                                        <span class="text-muted">No photo uploaded</span>
                                     @endif
                                 </td>
                             </tr>
                             <tr>
                                 <th>Created At</th>
-                                <td>{{ $brand->created_at->format('d M, Y h:i A') }}</td>
+                                <td>{{ $admin->created_at->format('d M, Y h:i A') }}</td>
                             </tr>
                             <tr>
                                 <th>Updated At</th>
-                                <td>{{ $brand->updated_at->format('d M, Y h:i A') }}</td>
+                                <td>{{ $admin->updated_at->format('d M, Y h:i A') }}</td>
                             </tr>
                         </table>
                     </div>
 
-                    <div class="card-footer text-right">
-                        <a href="{{ route('brand.index') }}" class="btn btn-secondary">Back</a>
+                    <div class="card-footer text-end">
+                        <a href="{{ route('admin.index') }}" class="btn btn-secondary">Back</a>
+                        <a href="{{ route('admin.edit', $admin->id) }}" class="btn btn-warning">Edit Admin</a>
                     </div>
                 </div>
             </div>

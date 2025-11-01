@@ -11,10 +11,10 @@ use App\Http\Controllers\AdminController;
 // =============================
 Route::get('/', [FrontendController::class, 'login'])->name('login');
 
-Route::get('/student-register', [StudentController::class, 'studentReg'])->name('student.register.form');
-Route::post('/student-register', [StudentController::class, 'register'])->name('student.register.submit');
+Route::get('/student-register', [StudentController::class, 'studentReg'])->name('frontend.pages.register');
+Route::post('/student-register', [StudentController::class, 'register'])->name('frontend.pages.register');
 
-Route::get('/student-login', [StudentController::class, 'studentLogin'])->name('student.login');
+Route::get('/student-login', [StudentController::class, 'studentLogin'])->name('frontend.pages.login');
 
 // =============================
 // Backend/Admin Routes

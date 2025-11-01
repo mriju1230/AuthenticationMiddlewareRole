@@ -9,7 +9,7 @@
         @include('layouts.components.message')
     </div>
 
-    <form action="{{ route('student.register.submit') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('frontend.pages.register') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="row g-3">
             <!-- Student ID -->
@@ -129,7 +129,7 @@
         <!-- Login Link -->
         <div class="text-center mt-3">
             <p class="text-muted mb-0">Already registered? 
-                <a href="{{ route('student.login') }}" class="text-primary fw-semibold text-decoration-none">Login here</a>
+                <a href="{{ route('frontend.pages.login') }}" class="text-primary fw-semibold text-decoration-none">Login here</a>
             </p>
         </div>
     </form>
