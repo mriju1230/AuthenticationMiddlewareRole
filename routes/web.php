@@ -19,7 +19,18 @@ Route::get('/student-login', [StudentController::class, 'studentLogin'])->name('
 // =============================
 // Backend/Admin Routes
 // =============================
-Route::get('/admin-panel', [BackendController::class, 'showAdmin'])->name('admin.dashboard');
+// Admin login page
+Route::get('/admin-panel', [BackendController::class, 'showAdminLogin'])->name('admin.login.page');
 
-Route::resource('/admin', AdminController::class);
-Route::resource('/role', AdminController::class);
+// Admin login POST
+Route::post('/admin-login', [BackendController::class, 'login'])->name('admin.login');
+
+// Admin dashboard
+Route::get('/admin-dashboard', [BackendController::class, 'dashboard'])->name('admin.dashboard');
+
+// Admin logout
+Route::get('/admin-logout', [BackendController::class, 'logout'])->name('admin.logout');
+
+// Admin management (CRUD)
+Route::resource('/admins', AdminController::class);
+

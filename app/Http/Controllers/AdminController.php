@@ -4,10 +4,20 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
+        /**
+     * Display the admin dashboard.
+     */
+    public function dashboard()
+    {
+        // You can pass data to the view if needed
+        return view('backend.pages.dashboard');
+    }
+    
     /**
      * Display a listing of the admins.
      */
@@ -134,5 +144,26 @@ class AdminController extends Controller
         $admin->delete();
 
         return back()->with('success', 'Admin deleted successfully!');
+    }
+
+    public function login(Request $request){
+        // validation
+        $credentials = $request->validate([
+           'email'      => 'required|email|max:100',
+            'password'   => 'required',
+        ]);
+        // return $request->all();
+        // auth check
+        if(Auth::guard('admin') -> attempt($credentials)){
+            return redirect('/backend.admin.dashboard');
+        }
+
+
+        return back();
+    }
+
+    public function logout(){
+        Auth::guard('admin') ->logout();
+        return redirect('/admin-panel');
     }
 }
